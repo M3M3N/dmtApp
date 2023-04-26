@@ -1,0 +1,329 @@
+<form (ngSubmit)="guardar()" autocomplete="off" [formGroup]="miFormulario" appearance="fill">
+
+    <mat-tab-group backgroundColor="primary" mat-stretch-tabs="false" mat-align-tabs="center">
+        <mat-tab label="Generales">
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="20">
+                    <mat-label>Numero</mat-label>
+                    <input matInput type="text" formControlName="numero">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" formControlName="nombre">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="20" appearance="fill">
+                    <mat-label>Fecha Ingreso</mat-label>
+                    <input matInput [matDatepicker]="fecing" formControlName="fechaing">
+                    <mat-datepicker-toggle matIconSuffix [for]="fecing"></mat-datepicker-toggle>
+                    <mat-datepicker #fecing></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="20">
+                    <mat-label>RFC</mat-label>
+                    <input matInput type="text" formControlName="rfc">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="80">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput type="text" formControlName="telefono">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="20" appearance="fill">
+                    <mat-label>Fecha Baja</mat-label>
+                    <input matInput [matDatepicker]="fecbaj" formControlName="fec_baja">
+                    <mat-datepicker-toggle matIconSuffix [for]="fecbaj"></mat-datepicker-toggle>
+                    <mat-datepicker #fecbaj></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>IMSS</mat-label>
+                    <input matInput type="text" formControlName="imss">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Cartilla</mat-label>
+                    <input matInput type="text" formControlName="cartilla">
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Puesto</mat-label>
+                    <input matInput type="text" formControlName="puesto">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Departamento</mat-label>
+                    <input matInput type="text" formControlName="departa">
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Empresa</mat-label>
+                    <input matInput type="text" formControlName="empresa">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Nomina</mat-label>
+                    <input matInput type="text" formControlName="nomina">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>CURP</mat-label>
+                    <input matInput type="text" formControlName="curp">
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Avisar a</mat-label>
+                    <input matInput type="text" formControlName="avisar">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Telefono Familiar</mat-label>
+                    <input matInput type="text" formControlName="tel_fam">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Telefono Trabajo</mat-label>
+                    <input matInput type="text" formControlName="tel_tbj">
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Correo</mat-label>
+                    <input matInput type="text" formControlName="correo">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Observaciones</mat-label>
+                    <input matInput type="text" formControlName="observa">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Operador</mat-label>
+                    <input matInput type="text" formControlName="operador">
+                </mat-form-field>
+
+            </div>
+
+        </mat-tab>
+        <mat-tab label="Personales">
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Direccion</mat-label>
+                    <input matInput type="text" formControlName="direccion">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Colonia</mat-label>
+                    <input matInput type="text" formControlName="colonia">
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Codigo Postal</mat-label>
+                    <input matInput type="text" formControlName="codpos">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Ciudad</mat-label>
+                    <input matInput type="text" formControlName="ciudad">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Estado</mat-label>
+                    <input matInput type="text" formControlName="estado">
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Calle Norte</mat-label>
+                    <input matInput type="text" formControlName="cr_norte">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Calle Sur</mat-label>
+                    <input matInput type="text" formControlName="cr_sur">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Calle Este</mat-label>
+                    <input matInput type="text" formControlName="cr_este">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Calle Oeste</mat-label>
+                    <input matInput type="text" formControlName="cr_oeste">
+                </mat-form-field>
+
+            </div>
+
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Sexo</mat-label>
+                    <input matInput type="text" formControlName="sexo">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Estado Civil</mat-label>
+                    <input matInput type="text" formControlName="civil">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Lugar de Nacimiento</mat-label>
+                    <input matInput type="text" formControlName="nacioen">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100" appearance="fill">
+                    <mat-label>Fecha Nacimiento</mat-label>
+                    <input matInput [matDatepicker]="fecnac" formControlName="fec_nacio">
+                    <mat-datepicker-toggle matIconSuffix [for]="fecnac"></mat-datepicker-toggle>
+                    <mat-datepicker #fecnac></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Estatura</mat-label>
+                    <input matInput type="text" formControlName="estatura">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Peso</mat-label>
+                    <input matInput type="text" formControlName="peso">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Tipo de Sangre</mat-label>
+                    <input matInput type="text" formControlName="tipsangre">
+                </mat-form-field>
+
+            </div>
+
+        </mat-tab>
+        <mat-tab label="Licencias">
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Licencia</mat-label>
+                    <input matInput type="text">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100" appearance="fill">
+                    <mat-label>Licencia Inicio</mat-label>
+                    <input matInput [matDatepicker]="licini">
+                    <mat-datepicker-toggle matIconSuffix [for]="licini"></mat-datepicker-toggle>
+                    <mat-datepicker #licini></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100" appearance="fill">
+                    <mat-label>Licencia Vencimiento</mat-label>
+                    <input matInput [matDatepicker]="licven">
+                    <mat-datepicker-toggle matIconSuffix [for]="licven"></mat-datepicker-toggle>
+                    <mat-datepicker #licven></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Pasaporte</mat-label>
+                    <input matInput type="text">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100" appearance="fill">
+                    <mat-label>Pasaporte Vencimiento</mat-label>
+                    <input matInput [matDatepicker]="pasven">
+                    <mat-datepicker-toggle matIconSuffix [for]="pasven"></mat-datepicker-toggle>
+                    <mat-datepicker #pasven></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>Aduana</mat-label>
+                    <input matInput type="text">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100" appearance="fill">
+                    <mat-label>Aduana Vencimiento</mat-label>
+                    <input matInput [matDatepicker]="aduanaven">
+                    <mat-datepicker-toggle matIconSuffix [for]="aduanaven"></mat-datepicker-toggle>
+                    <mat-datepicker #aduanaven></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+
+        </mat-tab>
+    </mat-tab-group>
+
+
+
+
+
+
+
+    <br>
+
+    <div fxLayout>
+        <button mat-raised-button color="primary" (click)="1">
+            <mat-icon>edit</mat-icon>
+            <!-- {{ empleado!.NUMERO ? 'Actualizar' : 'Crear' }}  -->
+        </button>
+
+        <span class="spacer"></span>
+
+    </div>
+
+</form>
+
+
+<div class="row">
+
+    <span>Empleado</span>
+
+    <pre>
+        {{ empleado | json }}
+    </pre>
+
+</div>

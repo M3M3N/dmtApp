@@ -1,0 +1,61 @@
+<mat-tab-group backgroundColor="primary" mat-stretch-tabs="false" mat-align-tabs="center">
+    <mat-tab label="Cargar Archivos">
+
+        <br>
+
+        <mat-dialog-content class="mat-typography">
+        
+            <div>
+                <button mat-raised-button color="primary" (click)="openDialog()">Cargar Documento</button>
+            </div>
+
+        </mat-dialog-content>
+        <br>
+
+            <div>
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                    <thead>
+                      <tr>
+                        <th>Eliminar</th>
+                        <th>Estatus</th>
+                        <th>Tipo</th>
+                        <th>Documento</th>
+                        <th>Ver</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="documentos">
+                      <tr *ngFor="let documento of documentos; let i = index">
+                        <td>
+                            <button mat-raised-button 
+                                    color="warn"
+                                    (click)="borrarDocumento( i, documento.id, documento.numero, documento.archivo )">
+                                <mat-icon fxFlexAlign="center">delete</mat-icon>
+                            </button>
+                        </td>
+                        <td>
+                            <button mat-flat-button color="accent" *ngIf="documento.id==0">
+                                {{ (documento.id ==0 ) ? 'NUEVO' : '' }}
+                            </button>
+                        </td>
+                        <td> {{ documento.tipo }} </td>
+                        <td> {{ documento.archivo }} </td>
+                        <td>
+                            <button mat-raised-button 
+                                    color="primary">
+                                Ver
+                            </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        
+        
+
+    </mat-tab>
+
+    <mat-tab label="Historial Documentos">
+
+    </mat-tab>
+
+</mat-tab-group>

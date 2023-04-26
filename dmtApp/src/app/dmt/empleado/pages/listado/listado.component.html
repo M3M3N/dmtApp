@@ -1,0 +1,28 @@
+<h1>Empleados</h1>
+<hr>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Nombre</th>
+        <th>RFC</th>
+        <th>EDITAR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados">
+        <td> {{ empleado.NUMERO }} </td>
+        <td> {{ empleado.NOMBRE }} </td>
+        <td> {{ empleado.RFC }} </td>
+        <td>
+            <button mat-raised-button 
+                    color="primary"
+                    [routerLink]="['/dmt/editar', empleado.NUMERO]">
+                Ver
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
