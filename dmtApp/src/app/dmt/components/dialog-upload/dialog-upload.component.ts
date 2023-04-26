@@ -83,7 +83,7 @@ export class DialogUploadComponent implements OnInit {
          }
       }
     );
-  }
+  } 
 
   cargaTipo( event: any){
     this.archivo.tipo = event.source.value;
