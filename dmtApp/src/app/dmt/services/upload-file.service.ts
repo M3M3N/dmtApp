@@ -16,8 +16,8 @@ export class UploadFileService {
     return this.http.post(`${this.baseUrl}/SubirArchivo.php`, JSON.stringify(archivo));
   }
 
-  obtenerRecientes( numero: number ): Observable<Archivo> {
-    return this.http.get<Archivo>(`${this.baseUrl}/ObtenerArchivos.php?numero=${numero}`)
+  obtenerRecientes( tipo: string, numero: number ): Observable<Archivo> {
+    return this.http.get<Archivo>(`${this.baseUrl}/ObtenerArchivos.php?tipo=${tipo}&numero=${numero}`)
     .pipe(
       catchError( error => of(error) )
     );
@@ -26,6 +26,5 @@ export class UploadFileService {
   borrarDocumento( id: number, numero: number, archivo: string ){
     return this.http.get(`${this.baseUrl}/BorrarArchivo.php?id=${id}&numero=${numero}&archivo=${archivo}`);
   }
-
 
 }

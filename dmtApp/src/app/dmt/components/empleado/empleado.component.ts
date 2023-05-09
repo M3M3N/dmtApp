@@ -4,6 +4,8 @@ import { Empleado } from '../../interfaces/empleado.interface';
 import { EmpleadosService } from '../../services/empleados.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { __values } from 'tslib';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-empleado',
@@ -13,111 +15,158 @@ import { switchMap } from 'rxjs';
 })
 export class EmpleadoComponent implements OnInit {
 
-  public empleado?: Empleado;
+  public empleado!: Empleado;
+  public EmpNvo = true;
 
   miFormulario: FormGroup = this.fb.group({
-    numero     : [ , [ Validators.required ] ],
-    nombre     : [ , [ Validators.required, Validators.minLength(10) ] ],
-    fechaing   : [ , [ Validators.required ] ],
-    rfc        : [],
-    telefono   : [],
-    puesto     : [],
-    fec_baja   : [],
-    departa    : [],
-    imss       : [],
-    cartilla   : [],
-    empresa    : [],
-    nomina     : [],
-    curp       : [],
-    avisar     : [],
-    tel_fam    : [],
-    tel_tbj    : [],
-    correo     : [],
-    observa    : [],
-    operador   : [],
-    direccion  : [],
-    colonia    : [],
-    codpos     : [],
-    ciudad     : [],
-    estado     : [],
-    cr_norte   : [],
-    cr_sur     : [],
-    cr_este    : [],
-    cr_oeste   : [],
-    sexo       : [],
-    nacioen    : [],
-    fec_nacio  : [],
-    civil      : [],
-    estatura   : [],
-    peso       : [],
-    tipsangre  : [],
-});
+    NUMERO: [, [Validators.required]],
+    NOMBRE: [, [Validators.required, Validators.minLength(10)]],
+    FECING: [, [Validators.required]],
+    RFC: [],
+    TELEFONO: [],
+    FEC_BAJA: [],
+    PUESTO: [],
+    DEPARTA: [],
+    IMSS: [],
+    CARTILLA: [],
+    EMPRESA: [],
+    NOMINA: [],
+    CURP: [],
+    AVISAR: [],
+    tel_fam: [],
+    tel_tbj: [],
+    correo: [],
+    observa: [],
+    operador: [],
+    DIRECCION: [],
+    COLONIA: [],
+    CODPOS: [],
+    CIUDAD: [],
+    ESTADO: [],
+    CR_NORTE: [],
+    CR_SUR: [],
+    CR_ESTE: [],
+    CR_OESTE: [],
+    SEXO: [],
+    CIVIL: [],
+    NACIOEN: [],
+    FEC_NACIO: [],
+    ESTATURA: [],
+    PESO: [],
+    TIPSANGRE: [],
+    LICENCIA: [],
+    LI_INICIO: [],
+    LI_VENCE: [],
+    PASAPORTE: [],
+    PA_VENCE: [],
+    ADUANA: [],
+    AD_VENCE: [],
+  });
 
-  constructor( private empleadoService: EmpleadosService,
+  constructor(private empleadoService: EmpleadosService,
     private activedRoute: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder ) {}
+    private fb: FormBuilder) { }
 
 
   ngOnInit(): void {
-    this.activedRoute.params
-    .pipe(
-        switchMap( ({ numero }) => this.empleadoService.getEmpleadoById( numero ) ),
-    ).subscribe( empleado => {
-      if (!empleado) return this.router.navigate([ '/dmt/listado' ]);
-      this.empleado = empleado;
-      this.cargaDatosFormulario();
-      return;
-    })
-  }
 
-  cargaDatosFormulario(){    
     this.miFormulario.reset({
-      numero    : this.empleado?.NUMERO,
-      nombre    : this.empleado?.NOMBRE,
-      fechaing  : this.empleado?.FECING,
-      rfc       : this.empleado?.RFC,
-      telefono  : this.empleado?.TELEFONO,
-      fec_baja  : this.empleado?.FEC_BAJA,
-      puesto    : this.empleado?.PUESTO,
-      departa   : this.empleado?.DEPARTA,
-      imss      : this.empleado?.IMSS,
-      cartilla  : this.empleado?.CARTILLA,
-      empresa   : this.empleado?.EMPRESA,
-      nomina    : this.empleado?.NOMINA,
-      curp      : this.empleado?.CURP,
-      avisar    : this.empleado?.AVISAR,
-      tel_fam   : this.empleado?.tel_fam,
-      tel_tbj   : this.empleado?.tel_tbj,
-      correo    : this.empleado?.correo,
-      observa   : this.empleado?.observa,
-      operador  : this.empleado?.operador,
-      direccion : this.empleado?.DIRECCION,
-      colonia   : this.empleado?.COLONIA,
-      codpos    : this.empleado?.CODPOS,
-      ciudad    : this.empleado?.CIUDAD,
-      estado    : this.empleado?.ESTADO,
-      cr_norte  : this.empleado?.CR_NORTE,
-      cr_sur    : this.empleado?.CR_SUR,
-      cr_este   : this.empleado?.CR_ESTE,
-      cr_oeste  : this.empleado?.CR_OESTE,
-      sexo      : this.empleado?.SEXO,
-      nacioen   : this.empleado?.NACIOEN,
-      fec_nacio : this.empleado?.FEC_NACIO,
-      civil     : this.empleado?.CIVIL,
-      estatura  : this.empleado?.ESTATURA,
-      peso      : this.empleado?.PESO,
-      tipsangre : this.empleado?.TIPSANGRE,
+      NUMERO: 0
+    });
+
+    if (!this.router.url.includes('editar')) return;
+
+    this.EmpNvo = false;
+
+    this.activedRoute.params
+      .pipe(
+        switchMap(({ numero }) => this.empleadoService.getEmpleadoById(numero)),
+      ).subscribe(empleado => {
+        if (!empleado) return this.router.navigate(['/dmt/listado']);
+        this.empleado = empleado;
+        this.cargaDatosFormulario();
+        return;
+      })
+  }
+
+  //Fecha MM-DD-AAAA
+
+
+  cargaDatosFormulario() {
+    this.miFormulario.reset({
+      NUMERO: this.empleado?.NUMERO,
+      NOMBRE: this.empleado?.NOMBRE,
+      FECING: moment(this.empleado?.FECING).format(),
+      RFC: this.empleado?.RFC,
+      TELEFONO: this.empleado?.TELEFONO,
+      FEC_BAJA: (this.empleado?.FEC_BAJA?.toString() == '0000-00-00')? null : moment(this.empleado?.FEC_BAJA).format(),
+      PUESTO: this.empleado?.PUESTO,
+      DEPARTA: this.empleado?.DEPARTA,
+      IMSS: this.empleado?.IMSS,
+      CARTILLA: this.empleado?.CARTILLA,
+      EMPRESA: this.empleado?.EMPRESA,
+      NOMINA: this.empleado?.NOMINA,
+      CURP: this.empleado?.CURP,
+      AVISAR: this.empleado?.AVISAR,
+      tel_fam: this.empleado?.tel_fam,
+      tel_tbj: this.empleado?.tel_tbj,
+      correo: this.empleado?.correo,
+      observa: this.empleado?.observa,
+      operador: this.empleado?.operador,
+      DIRECCION: this.empleado?.DIRECCION,
+      COLONIA: this.empleado?.COLONIA,
+      CODPOS: this.empleado?.CODPOS,
+      CIUDAD: this.empleado?.CIUDAD,
+      ESTADO: this.empleado?.ESTADO,
+      CR_NORTE: this.empleado?.CR_NORTE,
+      CR_SUR: this.empleado?.CR_SUR,
+      CR_ESTE: this.empleado?.CR_ESTE,
+      CR_OESTE: this.empleado?.CR_OESTE,
+      SEXO: this.empleado?.SEXO,
+      CIVIL: this.empleado?.CIVIL,
+      NACIOEN: this.empleado?.NACIOEN,
+      FEC_NACIO: moment(this.empleado?.FEC_NACIO).format(),//this.empleado?.FEC_NACIO,
+      ESTATURA: this.empleado?.ESTATURA,
+      PESO: this.empleado?.PESO,
+      TIPSANGRE: this.empleado?.TIPSANGRE,
+      LICENCIA: this.empleado?.LICENCIA,
+      LI_INICIO: moment(this.empleado?.LI_INICIO).format(),//this.empleado?.LI_INICIO,
+      LI_VENCE: moment(this.empleado?.LI_VENCE).format(),//this.empleado?.LI_VENCE,
+      PASAPORTE: this.empleado?.PASAPORTE,
+      PA_VENCE: moment(this.empleado?.PA_VENCE).format(),//this.empleado?.PA_VENCE,
+      ADUANA: this.empleado?.ADUANA,
+      AD_VENCE: moment(this.empleado?.AD_VENCE).format(),//this.empleado?.AD_VENCE,
     })
   }
 
-  guardar(){
-    if(this.miFormulario.invalid){
+  guardar() {
+
+    if (this.miFormulario.invalid) {
       this.miFormulario.markAllAsTouched();
       return;
     }
-    console.log(this.miFormulario.value);
-    this.miFormulario.reset();
+
+    if ( this.EmpNvo ){
+      //Agregar
+      this.empleado = this.miFormulario.value;
+      //this.empleado.FECING = this.miFormulario.controls['FECING'].value.toISOString().slice(0, 10);
+
+      this.empleadoService.agregarEmpleado( this.miFormulario.value )
+        .subscribe( empleado => {
+          alert('Empleado Creado');
+          console.log(empleado);
+          this.router.navigate(['/dmt/listado']);
+        } );
+    }else{
+      //Actualizar
+      this.empleadoService.actualizarEmpleado( this.miFormulario.value )
+      .subscribe( empleado => {
+        //this.router.navigate(['/heroes/editar', heroe.id ]);
+        alert('Empleado Actualizado');
+      });
+    }
+
   }
 
 

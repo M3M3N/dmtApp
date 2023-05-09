@@ -1,23 +1,27 @@
+
 <form (ngSubmit)="guardar()" autocomplete="off" [formGroup]="miFormulario" appearance="fill">
 
-    <mat-tab-group backgroundColor="primary" mat-stretch-tabs="false" mat-align-tabs="center">
+    <mat-tab-group backgroundColor="primary" mat-stretch-tabs="false" mat-align-tabs="center" appearance="fill">
         <mat-tab label="Generales">
+
+            <br>
+
             <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
 
                 <mat-form-field fxFlex="20">
                     <mat-label>Numero</mat-label>
-                    <input matInput type="text" formControlName="numero">
+                    <input matInput type="text" formControlName="NUMERO">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Nombre</mat-label>
-                    <input matInput type="text" formControlName="nombre">
+                    <input matInput type="text" formControlName="NOMBRE">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="20" appearance="fill">
                     <mat-label>Fecha Ingreso</mat-label>
-                    <input matInput [matDatepicker]="fecing" formControlName="fechaing">
-                    <mat-datepicker-toggle matIconSuffix [for]="fecing"></mat-datepicker-toggle>
+                    <input matInput [matDatepicker]="fecing" formControlName="FECING">
+                    <mat-datepicker-toggle matIconSuffix mdSuffix [for]="fecing"></mat-datepicker-toggle>
                     <mat-datepicker #fecing></mat-datepicker>
                 </mat-form-field>
 
@@ -27,17 +31,17 @@
 
                 <mat-form-field fxFlex="20">
                     <mat-label>RFC</mat-label>
-                    <input matInput type="text" formControlName="rfc">
+                    <input matInput type="text" formControlName="RFC">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="80">
                     <mat-label>Telefono</mat-label>
-                    <input matInput type="text" formControlName="telefono">
+                    <input matInput type="text" formControlName="TELEFONO">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="20" appearance="fill">
                     <mat-label>Fecha Baja</mat-label>
-                    <input matInput [matDatepicker]="fecbaj" formControlName="fec_baja">
+                    <input matInput [matDatepicker]="fecbaj" formControlName="FEC_BAJA">
                     <mat-datepicker-toggle matIconSuffix [for]="fecbaj"></mat-datepicker-toggle>
                     <mat-datepicker #fecbaj></mat-datepicker>
                 </mat-form-field>
@@ -48,12 +52,12 @@
 
                 <mat-form-field fxFlex="100">
                     <mat-label>IMSS</mat-label>
-                    <input matInput type="text" formControlName="imss">
+                    <input matInput type="text" formControlName="IMSS">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Cartilla</mat-label>
-                    <input matInput type="text" formControlName="cartilla">
+                    <input matInput type="text" formControlName="CARTILLA">
                 </mat-form-field>
 
             </div>
@@ -62,12 +66,12 @@
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Puesto</mat-label>
-                    <input matInput type="text" formControlName="puesto">
+                    <input matInput type="text" formControlName="PUESTO">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Departamento</mat-label>
-                    <input matInput type="text" formControlName="departa">
+                    <input matInput type="text" formControlName="DEPARTA">
                 </mat-form-field>
 
             </div>
@@ -76,17 +80,17 @@
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Empresa</mat-label>
-                    <input matInput type="text" formControlName="empresa">
+                    <input matInput type="text" formControlName="EMPRESA">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Nomina</mat-label>
-                    <input matInput type="text" formControlName="nomina">
+                    <input matInput type="text" formControlName="NOMINA">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>CURP</mat-label>
-                    <input matInput type="text" formControlName="curp">
+                    <input matInput type="text" formControlName="CURP">
                 </mat-form-field>
 
             </div>
@@ -95,7 +99,7 @@
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Avisar a</mat-label>
-                    <input matInput type="text" formControlName="avisar">
+                    <input matInput type="text" formControlName="AVISAR">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
@@ -132,16 +136,18 @@
         </mat-tab>
         <mat-tab label="Personales">
 
+            <br>
+
             <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Direccion</mat-label>
-                    <input matInput type="text" formControlName="direccion">
+                    <input matInput type="text" formControlName="DIRECCION">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Colonia</mat-label>
-                    <input matInput type="text" formControlName="colonia">
+                    <input matInput type="text" formControlName="COLONIA">
                 </mat-form-field>
 
             </div>
@@ -150,17 +156,17 @@
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Codigo Postal</mat-label>
-                    <input matInput type="text" formControlName="codpos">
+                    <input matInput type="text" formControlName="CODPOS">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Ciudad</mat-label>
-                    <input matInput type="text" formControlName="ciudad">
+                    <input matInput type="text" formControlName="CIUDAD">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Estado</mat-label>
-                    <input matInput type="text" formControlName="estado">
+                    <input matInput type="text" formControlName="ESTADO">
                 </mat-form-field>
 
             </div>
@@ -169,22 +175,22 @@
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Calle Norte</mat-label>
-                    <input matInput type="text" formControlName="cr_norte">
+                    <input matInput type="text" formControlName="CR_NORTE">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Calle Sur</mat-label>
-                    <input matInput type="text" formControlName="cr_sur">
+                    <input matInput type="text" formControlName="CR_SUR">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Calle Este</mat-label>
-                    <input matInput type="text" formControlName="cr_este">
+                    <input matInput type="text" formControlName="CR_ESTE">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Calle Oeste</mat-label>
-                    <input matInput type="text" formControlName="cr_oeste">
+                    <input matInput type="text" formControlName="CR_OESTE">
                 </mat-form-field>
 
             </div>
@@ -194,22 +200,22 @@
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Sexo</mat-label>
-                    <input matInput type="text" formControlName="sexo">
+                    <input matInput type="text" formControlName="SEXO">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Estado Civil</mat-label>
-                    <input matInput type="text" formControlName="civil">
+                    <input matInput type="text" formControlName="CIVIL">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Lugar de Nacimiento</mat-label>
-                    <input matInput type="text" formControlName="nacioen">
+                    <input matInput type="text" formControlName="NACIOEN">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100" appearance="fill">
                     <mat-label>Fecha Nacimiento</mat-label>
-                    <input matInput [matDatepicker]="fecnac" formControlName="fec_nacio">
+                    <input matInput [matDatepicker]="fecnac" formControlName="FEC_NACIO">
                     <mat-datepicker-toggle matIconSuffix [for]="fecnac"></mat-datepicker-toggle>
                     <mat-datepicker #fecnac></mat-datepicker>
                 </mat-form-field>
@@ -220,17 +226,17 @@
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Estatura</mat-label>
-                    <input matInput type="text" formControlName="estatura">
+                    <input matInput type="text" formControlName="ESTATURA">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Peso</mat-label>
-                    <input matInput type="text" formControlName="peso">
+                    <input matInput type="text" formControlName="PESO">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Tipo de Sangre</mat-label>
-                    <input matInput type="text" formControlName="tipsangre">
+                    <input matInput type="text" formControlName="TIPSANGRE">
                 </mat-form-field>
 
             </div>
@@ -238,25 +244,27 @@
         </mat-tab>
         <mat-tab label="Licencias">
 
+            <br>
+
             <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Licencia</mat-label>
-                    <input matInput type="text">
+                    <input matInput type="text" formControlName="LICENCIA">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100" appearance="fill">
                     <mat-label>Licencia Inicio</mat-label>
-                    <input matInput [matDatepicker]="licini">
-                    <mat-datepicker-toggle matIconSuffix [for]="licini"></mat-datepicker-toggle>
-                    <mat-datepicker #licini></mat-datepicker>
+                    <input matInput [matDatepicker]="li_inicio" formControlName="LI_INICIO">
+                    <mat-datepicker-toggle matIconSuffix [for]="li_inicio"></mat-datepicker-toggle>
+                    <mat-datepicker #li_inicio></mat-datepicker>
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100" appearance="fill">
                     <mat-label>Licencia Vencimiento</mat-label>
-                    <input matInput [matDatepicker]="licven">
-                    <mat-datepicker-toggle matIconSuffix [for]="licven"></mat-datepicker-toggle>
-                    <mat-datepicker #licven></mat-datepicker>
+                    <input matInput [matDatepicker]="li_vence" formControlName="LI_VENCE">
+                    <mat-datepicker-toggle matIconSuffix [for]="li_vence"></mat-datepicker-toggle>
+                    <mat-datepicker #li_vence></mat-datepicker>
                 </mat-form-field>
 
             </div>
@@ -265,14 +273,14 @@
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Pasaporte</mat-label>
-                    <input matInput type="text">
+                    <input matInput type="text" formControlName="PASAPORTE">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100" appearance="fill">
                     <mat-label>Pasaporte Vencimiento</mat-label>
-                    <input matInput [matDatepicker]="pasven">
-                    <mat-datepicker-toggle matIconSuffix [for]="pasven"></mat-datepicker-toggle>
-                    <mat-datepicker #pasven></mat-datepicker>
+                    <input matInput [matDatepicker]="pa_vence" formControlName="PA_VENCE">
+                    <mat-datepicker-toggle matIconSuffix [for]="pa_vence"></mat-datepicker-toggle>
+                    <mat-datepicker #pa_vence></mat-datepicker>
                 </mat-form-field>
 
             </div>
@@ -281,14 +289,14 @@
 
                 <mat-form-field fxFlex="100">
                     <mat-label>Aduana</mat-label>
-                    <input matInput type="text">
+                    <input matInput type="text" formControlName="ADUANA">
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100" appearance="fill">
                     <mat-label>Aduana Vencimiento</mat-label>
-                    <input matInput [matDatepicker]="aduanaven">
-                    <mat-datepicker-toggle matIconSuffix [for]="aduanaven"></mat-datepicker-toggle>
-                    <mat-datepicker #aduanaven></mat-datepicker>
+                    <input matInput [matDatepicker]="ad_vence" formControlName="AD_VENCE">
+                    <mat-datepicker-toggle matIconSuffix [for]="ad_vence"></mat-datepicker-toggle>
+                    <mat-datepicker #ad_vence></mat-datepicker>
                 </mat-form-field>
 
             </div>
@@ -297,33 +305,36 @@
         </mat-tab>
     </mat-tab-group>
 
-
-
-
-
-
-
     <br>
 
     <div fxLayout>
+        <span class="spacer"></span>
         <button mat-raised-button color="primary" (click)="1">
             <mat-icon>edit</mat-icon>
-            <!-- {{ empleado!.NUMERO ? 'Actualizar' : 'Crear' }}  -->
+            {{ empleado ? 'Actualizar' : 'Crear' }} 
         </button>
-
-        <span class="spacer"></span>
-
     </div>
 
+    <br>
+    <br>
+
 </form>
+<!-- <div class="row">
+    <div class="col">
+
+        <span>Valid</span>
+        <pre>{{ miFormulario.valid }}</pre>
+
+        <span>Pristine</span>
+        <pre>{{ miFormulario.pristine }}</pre>
+
+        <span>Touched</span>
+        <pre>{{ miFormulario.touched }}</pre>
+
+        <span>Value</span>
+        <pre>{{ miFormulario.value | json }}</pre>
+
+    </div>
+</div> -->
 
 
-<div class="row">
-
-    <span>Empleado</span>
-
-    <pre>
-        {{ empleado | json }}
-    </pre>
-
-</div>

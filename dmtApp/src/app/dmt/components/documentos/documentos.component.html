@@ -4,7 +4,7 @@
         <br>
 
         <mat-dialog-content class="mat-typography">
-        
+
             <div>
                 <button mat-raised-button color="primary" (click)="openDialog()">Cargar Documento</button>
             </div>
@@ -12,23 +12,22 @@
         </mat-dialog-content>
         <br>
 
-            <div>
-                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
-                    <thead>
-                      <tr>
+        <div>
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                <thead>
+                    <tr>
                         <th>Eliminar</th>
                         <th>Estatus</th>
                         <th>Tipo</th>
                         <th>Documento</th>
                         <th>Ver</th>
-                      </tr>
-                    </thead>
-                    <tbody *ngIf="documentos">
-                      <tr *ngFor="let documento of documentos; let i = index">
+                    </tr>
+                </thead>
+                <tbody *ngIf="documentos">
+                    <tr *ngFor="let documento of documentos; let i = index">
                         <td>
-                            <button mat-raised-button 
-                                    color="warn"
-                                    (click)="borrarDocumento( i, documento.id, documento.numero, documento.archivo )">
+                            <button mat-raised-button color="warn"
+                                (click)="borrarDocumento('NUEVO' , i, documento.id, documento.numero, documento.archivo )">
                                 <mat-icon fxFlexAlign="center">delete</mat-icon>
                             </button>
                         </td>
@@ -37,24 +36,60 @@
                                 {{ (documento.id ==0 ) ? 'NUEVO' : '' }}
                             </button>
                         </td>
-                        <td> {{ documento.tipo }} </td>
+                        <td> {{ documento.descripcion }} </td>
                         <td> {{ documento.archivo }} </td>
                         <td>
-                            <button mat-raised-button 
-                                    color="primary">
+                            <button mat-raised-button color="primary"
+                                (click)="cargarPDF(documento.numero, documento.archivo)">
                                 Ver
                             </button>
                         </td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-        
-        
-
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </mat-tab>
 
+
+
     <mat-tab label="Historial Documentos">
+
+        <br>
+
+        <div>
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTriggerH" class="row-border hover">
+                <thead>
+                    <tr>
+                        <th>Eliminar</th>
+                        <th>Archivo</th>
+                        <th>Tipo</th>
+                        <th>Fecha</th>
+                        <th>Usuario</th>
+                        <th>Abrir</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="documentosHist">
+                    <tr *ngFor="let documento of documentosHist; let i = index">
+                        <td>
+                            <button mat-raised-button color="warn"
+                                (click)="borrarDocumento('HIST', i, documento.id, documento.numero, documento.archivo )">
+                                <mat-icon fxFlexAlign="center">delete</mat-icon>
+                            </button>
+                        </td>
+                        <td> {{ documento.archivo }} </td>
+                        <td> {{ documento.descripcion }} </td>
+                        <td> {{ documento.fecha }} </td>
+                        <td> {{ documento.usuario }} </td>
+                        <td>
+                            <button mat-raised-button color="primary"
+                                (click)="cargarPDF(documento.numero, documento.archivo)">
+                                Ver
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </mat-tab>
 

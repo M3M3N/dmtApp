@@ -19,7 +19,10 @@ export class AgregarComponent implements OnInit {
     private router: Router ) {}
 
 ngOnInit(): void {
-    this.activedRoute.params
+
+  if ( !this.router.url.includes('editar') ) return;
+  
+  this.activedRoute.params
     .pipe(
         switchMap( ({ numero }) => this.empleadoService.getEmpleadoById( numero ) ),
     ).subscribe( empleado => {

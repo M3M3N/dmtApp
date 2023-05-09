@@ -13,6 +13,8 @@ import { FormControl } from '@angular/forms';
 })
 export class DialogUploadComponent implements OnInit {
 
+  private baseUrl: string = "http://localhost/dmt";
+
   public archivo = {
     nombre: null,
     nombreArchivo: null,
@@ -21,6 +23,8 @@ export class DialogUploadComponent implements OnInit {
     empleado: "",
     tipo: "",
     usuario: "ADMIN",
+    fecha: new Date(),
+    ruta: ""
   };
 
   documento!: Documento[];
@@ -69,6 +73,8 @@ export class DialogUploadComponent implements OnInit {
     }
 
     this.archivo.empleado = this._empleadoID.numero;
+    this.archivo.fecha = new Date();
+    this.archivo.ruta = this.baseUrl;
     this.uploadService.uploadFile(this.archivo).subscribe(
       (datos: any) => {
          if (datos['resultado'] == 'OK'){

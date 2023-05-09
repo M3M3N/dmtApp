@@ -1,19 +1,12 @@
 <h1>
-    Editar / Agregar
+    {{ empleado ? 'Editar' : 'Agregar' }}
     Empleado
-    <small>Memo</small>
 </h1>
-
-<div fxLayout="row" 
-     fxLayout.xs="column" 
-     fxLayoutGap="40px">
-
-     <div fxFlex="100" fxLayout="Column">
 
         <mat-tab-group backgroundColor="primary" color="primary" mat-stretch-tabs="false" mat-align-tabs="start"> 
             <mat-tab label="Empleado">
 
-                <div fxFlex="100" fxLayout="column" fxLatoutGap="10px">
+                <div>
                     <app-empleado></app-empleado>
                 </div>
 
@@ -23,8 +16,5 @@
             </mat-tab>
         </mat-tab-group>
 
-    </div>
-
-</div>
 
 

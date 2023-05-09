@@ -24,4 +24,12 @@ export class EmpleadosService {
       );
  }
 
+ agregarEmpleado( empleado: Empleado){
+    return this.http.post(`${this.baseUrl}/AgregarEmpleado.php`, JSON.stringify(empleado));
+ }
+
+ actualizarEmpleado(empleado: Empleado){
+    return this.http.post(`${this.baseUrl}/ActualizarEmpleado.php?numero=${empleado.NUMERO}`, JSON.stringify(empleado));
+ }
+
 }

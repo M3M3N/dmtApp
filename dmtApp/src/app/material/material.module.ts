@@ -31,8 +31,5 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTabsModule,
     MatToolbarModule
   ],
-  providers: [
-    MatDatepickerModule,
-  ]
 })
 export class MaterialModule { }
